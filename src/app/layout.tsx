@@ -24,6 +24,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            try {
+              const stored = localStorage.getItem('theme');
+              const theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+              if (theme === 'dark') document.documentElement.classList.add('dark');
+            } catch (e) {}
+          `,
+        }}
+      />
       <body className="flex min-h-full flex-col">{children}</body>
     </html>
   );
