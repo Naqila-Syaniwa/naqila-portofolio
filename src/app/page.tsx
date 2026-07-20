@@ -1,4 +1,7 @@
+'use client';
+
 import Image from 'next/image';
+import { ThemeToggle } from '@/components/ui/ThemeToggle';
 
 export default function Home() {
   return (
@@ -34,9 +37,7 @@ export default function Home() {
             center.
           </p>
         </div>
-        <div className="bg-surface text-text-primary border-border rounded-card border p-6">
-          Tes token warna & radius
-        </div>
+        <ThemeToggle />
         <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
           <a
             className="bg-foreground text-background flex h-12 w-full items-center justify-center gap-2 rounded-full px-5 transition-colors hover:bg-[#383838] md:w-[158px] dark:hover:bg-[#ccc]"
