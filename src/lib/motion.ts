@@ -52,7 +52,7 @@ export const gentleFloat: Variants = {
 };
 
 export const pillTap = {
-    whileHover: { scale: 1.02 },
+    whileHover: { scale: 1.2 },
     whileTap: { scale: 0.98 },
     transition: microTransition,
 };
