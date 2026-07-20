@@ -1,0 +1,18 @@
+[
+    {
+        "slug": "trashtrack",
+        "title": "TrashTrack",
+        "category": "IoT Platform",
+        "thumbnail": "/images/projects/trashtrack-thumb",
+        "gallery": [
+            "/images/projects/trashtrack-1",
+            "/images/projects/trashtrack-2",
+            "/images/projects/trashtrack-3"
+        ],
+        "description": "An indicator fill and gas level trashbin for smart city.",
+        "techStack": ["Node.js", "MQTT", "Docker"],
+        "websiteUrl": "",
+        "githubUrl": "https://github.com/banu1312/smart-city-platform-kel6",
+        "duration": "1 month"
+    }
+]

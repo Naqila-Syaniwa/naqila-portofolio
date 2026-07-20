@@ -1,0 +1,49 @@
+[
+    {
+        "id": "programming_language",
+        "title": "Programming Language",
+        "skills": [
+            {
+                "name": "JavaScript",
+                "icon": "javascript",
+                "level": 4
+            },
+            {
+                "name": "TypeScript",
+                "icon": "typescript",
+                "level": 3
+            },
+            {
+                "name": "Java",
+                "icon": "java",
+                "level": 3
+            }
+        ]
+    },
+    {
+        "id": "frameworks",
+        "title": "Frameworks",
+        "skills": [
+            {
+                "name": "React",
+                "icon": "react",
+                "level": 4
+            },
+            {
+                "name": "Next.js",
+                "icon": "nextjs",
+                "level": 3
+            },
+            {
+                "name": "Node.js",
+                "icon": "nodejs",
+                "level": 3
+            },
+            {
+                "name": "Tailwind CSS",
+                "icon": "tailwindcss",
+                "level": 4
+            }
+        ]
+    }
+]
