@@ -3,7 +3,7 @@
 import { motion } from 'motion/react';
 import { DropCap } from '@/components/DropCap';
 import { ThemeToggle } from '@/components/ui/ThemeToggle'
-import { fadeUp, gentleFloat, staggerContainer } from '@/lib/motion';
+import { fadeUp, staggerContainer } from '@/lib/motion';
 
 const roles = [
   { label: 'Software Engineer', position: 'top-[10%] sm:top[16%] left-[6%] sm:left-[12%]' },
@@ -15,13 +15,14 @@ const roles = [
 export default function Home() {
   return (
     <div className="bg-background relative flex min-h-screen flex-1 flex-col items-center justify-center overflow-hidden px-6">
-      {roles.map((role, i) => (
+      {roles.map((role) => (
         <motion.div 
           key={role.label} 
-          className={`absolute ${role.position} flex items-center justify-center`}
-          variants={gentleFloat}
-          animate="animate"
-          transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: i * 0.4 }}
+          className={`absolute ${role.position} flex cursor-grab items-center justify-center active:cursor-grabbing`}
+          drag
+          dragSnapToOrigin
+          dragElastic={0.15}
+          whileDrag={{ scale: 1.5 }}
         >
           <span className="bg-accent/60 absolute h-32 w-52 rounded-full blur-2xl" />
           <span className="text-text-primary relative w-max max-w-[38vw] text-center text-base font-normal text-balance sm:max-w-none sm:text-xl">
