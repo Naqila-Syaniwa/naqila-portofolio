@@ -8,13 +8,17 @@ interface DropCapProps {
 
 export function DropCap({ children, as = 'span', className = '' }: DropCapProps) {
     const Tag = as;
-    const firstLetter = children.charAt(0);
-    const rest = children.slice(1);
+    const words = children.split(' ');
 
     return (
         <Tag className={`font-sans ${className}`}>
-            <span className="font-serif italic">{firstLetter}</span>
-            {rest}
+            {words.map((word, i) => (
+                <span key={i}>
+                    {i > 0 && ' '}
+                    <span className="font-serif italic">{word.charAt(0)}</span>
+                    {word.slice(1)}
+                </span>
+            ))}
         </Tag>
     );
 }
