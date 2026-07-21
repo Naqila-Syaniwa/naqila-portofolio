@@ -59,15 +59,32 @@ body {
   animation: none;
 }
 
+@property --vt-radius {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 0%;
+}
+
 ::view-transition-new(root) {
-  animation: circle-reveal 600ms cubic-bezier(0.45, 0, 0.55, 1);
+  animation: circle-reveal 600ms cubic-bezier(0.45, 0, 0.55, 1) forwards;
+  --vt-feather: 14%;
+  mask-image: radial-gradient(
+    circle at var(--vt-x, 50%) var(--vt-y, 50%),
+    black calc(var(--vt-radius) - var(--vt-feather)),
+    transparent var(--vt-radius)
+  );
+  -webkit-mask-image: radial-gradient(
+    circle at var(--vt-x, 50%) var(--vt-y, 50%),
+    black calc(var(--vt-radius) - var(--vt-feather)),
+    transparent var(--vt-radius)
+  );
 }
 
 @keyframes circle-reveal {
   from {
-    clip-path: circle(0% at var(--vt-x, 50%) var(--vt-y, 50%));
+    --vt-radius: 0%;
   }
   to {
-    clip-path: circle(150% at var(--vt-x, 50%) var(--vt-y, 50%));
+    --vt-radius: 150%;
   }
 }
