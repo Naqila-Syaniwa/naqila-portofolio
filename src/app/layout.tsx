@@ -27,23 +27,26 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${fontSans.variable} ${fontSerif.variable} h-full antialiased`}>
-      <Script
-        id="theme-init"
-        strategy="beforeInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-            try {
-              const stored = localStorage.getItem('theme');
-              const theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-              if (theme === 'dark') {
-                document.documentElement.classList.add('dark');
-              }
-            } catch (e) {}
-          `,
-        }}
-      />
-      <body className="flex min-h-full flex-col">{children}</body>
+    <html lang="en" className={`${fontSans.variable} ${fontSerif.variable} h-full antialiased`} suppressHydrationWarning>
+      
+      <body className="flex min-h-full flex-col">
+        <Script
+          id="theme-init"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                const stored = localStorage.getItem('theme');
+                const theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                if (theme === 'dark') {
+                  document.documentElement.classList.add('dark');
+                }
+              } catch (e) {}
+            `,
+          }}
+        />
+        {children}
+      </body>
     </html>
   );
 }
