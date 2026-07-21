@@ -19,13 +19,21 @@ export function Sidebar() {
                             key={item.href}
                             href={item.href}
                             aria-current={isActive ? 'page' : undefined}
-                            className={`text-lg font-medium transition-colors ${
+                            className={`relative rounded-pill px-2 py-1 text-lg font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent ${
                                 isActive 
                                     ? 'text-accent underline underline-offset-4' 
                                     : 'text-text-primary hover:text-accent'
                             }`}
                         >
-                            <DropCap>{item.label}</DropCap>
+                            {isActive && (
+                                <span 
+                                    aria-hidden="true"
+                                    className="bg-accent/40 pointer-events-none absolute -inset-x-6 -inset-y-3 z-0 rounded-full blur-xl"
+                                />
+                            )}
+                            <span className="relative z-10">
+                                <DropCap>{item.label}</DropCap>
+                            </span>
                         </Link>
                     );
                 })}
