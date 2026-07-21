@@ -2,7 +2,7 @@
 
 import { useSyncExternalStore } from 'react';
 import { motion } from 'motion/react';
-import { applyTheme, getThemeServerSnapshot, getThemeSnapshot, subscribeTheme, type Theme } from '@/lib/theme';
+import { applyTheme, applyThemesWithTransition, getThemeServerSnapshot, getThemeSnapshot, subscribeTheme, type Theme } from '@/lib/theme';
 
 const TRACK_WIDTH = 40;
 const KNOB_SIZE = 18;
@@ -13,7 +13,7 @@ export function ThemeToggle() {
     
     function toggle() {
         const next: Theme = theme === 'light' ? 'dark' : 'light';
-        applyTheme(next);
+        applyThemesWithTransition(next);
     }
 
     const knobX = theme === 'dark' ? TRACK_WIDTH - KNOB_SIZE - TRACK_PADDING : TRACK_PADDING;

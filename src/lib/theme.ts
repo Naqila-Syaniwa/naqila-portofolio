@@ -16,6 +16,23 @@ export function applyTheme(theme: Theme) {
     listeners.forEach((listener) => listener());
 }
 
+type DocumentWithViewTransition = Document & {
+    startViewTransition?: (callback: () => void) => void;
+};
+
+export function applyThemesWithTransition(theme: Theme) {
+    const doc = document as DocumentWithViewTransition;
+
+    if (typeof doc.startViewTransition !== 'function' || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        applyTheme(theme);
+        return;
+    }
+
+    doc.startViewTransition(() => {
+        applyTheme(theme);
+    });
+}
+
 export function subscribeTheme(listener: Listener) {
     listeners.add(listener);
     return () => listeners.delete(listener);

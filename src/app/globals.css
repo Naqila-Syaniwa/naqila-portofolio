@@ -49,3 +49,9 @@ body {
     background 300ms ease, 
     color 300ms ease;
 }
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 400ms;
+  animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1);
+}
