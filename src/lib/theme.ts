@@ -20,8 +20,13 @@ type DocumentWithViewTransition = Document & {
     startViewTransition?: (callback: () => void) => void;
 };
 
-export function applyThemesWithTransition(theme: Theme) {
+export function applyThemesWithTransition(theme: Theme, origin?: { x: number; y: number }) {
     const doc = document as DocumentWithViewTransition;
+
+    if (origin) {
+        document.documentElement.style.setProperty('--vt-x', `${origin.x}px`);
+        document.documentElement.style.setProperty('--vt-y', `${origin.y}px`);
+    }
 
     if (typeof doc.startViewTransition !== 'function' || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         applyTheme(theme);
