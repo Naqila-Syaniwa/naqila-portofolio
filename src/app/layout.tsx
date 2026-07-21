@@ -34,10 +34,11 @@ export default function RootLayout({
         dangerouslySetInnerHTML={{
           __html: `
             try {
-            const stored = localStorage.getItem('theme');
-            const theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-            if (theme === 'dark') {
-              document.documentElement.classList.add('dark');
+              const stored = localStorage.getItem('theme');
+              const theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+              if (theme === 'dark') {
+                document.documentElement.classList.add('dark');
+              }
             } catch (e) {}
           `,
         }}
