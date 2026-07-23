@@ -14,7 +14,7 @@ export default function SkillsPage() {
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
-            className="grid grid-cols-1 items-start gap-6 sm:grid-cols-2"
+            className="grid grid-cols-1 items-start gap-6 sm:grid-cols-[repeat(auto-fit,minmax(300px,1fr))]"
         >
             {skillCategories.map((category) => {
                 const isOpen = openId === category.id;
