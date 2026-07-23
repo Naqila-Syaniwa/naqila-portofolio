@@ -56,3 +56,12 @@ export const pillTap = {
     whileTap: { scale: 0.98 },
     transition: microTransition,
 };
+
+export const photoReveal: Variants = {
+    hidden: { opacity: 0, scale: 0.92 },
+    visible: {
+        opacity: 1,
+        scale: 1,
+        transition: sectionTransition,
+    },
+};
