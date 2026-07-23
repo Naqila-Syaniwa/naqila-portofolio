@@ -30,7 +30,7 @@ export default function SkillsPage() {
                             aria-expanded={isOpen}
                             layout
                             animate={{
-                                backgroundColor: isOpen ? 'var(--color-accent)' : 'transparent',
+                                backgroundColor: isOpen ? 'var(--color-accent)' : 'rgba(0,0,0,0)',
                             }}
                             transition={microTransition}
                             className="-m-6 flex w-[calc(100%+3rem)] items-center justify-between gap-4 rounded-card p-6 text-left"
