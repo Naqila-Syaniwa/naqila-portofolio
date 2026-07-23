@@ -15,7 +15,7 @@ export default function AboutPage() {
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
-            className="flex flex-col items-center gap-10"
+            className="flex flex-col items-center gap-6 md:gap-10"
         >
             <motion.div variants={fadeUp} className="w-full">
                 <RoleFilter roles={aboutContent.roles} active={activeRole} onChange={setActiveRole} />
@@ -23,7 +23,7 @@ export default function AboutPage() {
 
             <motion.div 
                 variants={photoReveal}
-                className="border-border bg-surface h-64 w-64 rounded-card border sm:h-72 sm:w-72" 
+                className="border-border bg-surface h-48 w-48 rounded-card border md:h-64 md:w-64 xl:h-72 xl:w-72" 
             />
 
             <AnimatePresence mode="wait">

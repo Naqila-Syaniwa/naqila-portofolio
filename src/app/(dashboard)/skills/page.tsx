@@ -14,7 +14,7 @@ export default function SkillsPage() {
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
-            className="grid grid-cols-1 items-start gap-6 sm:grid-cols-[repeat(auto-fit,minmax(300px,1fr))]"
+            className="grid grid-cols-1 items-start gap-4 sm:grid-cols-[repeat(auto-fit,minmax(300px,1fr))] md:gap-6"
         >
             {skillCategories.map((category) => {
                 const isOpen = openId === category.id;
@@ -23,7 +23,7 @@ export default function SkillsPage() {
                         key={category.id}
                         variants={fadeUp}
                         layout
-                        className="border-border bg-surface rounded-card border p-6"
+                        className="border-border bg-surface rounded-card border p-4 md:p-6"
                     >
                         <motion.button
                             type="button"
@@ -34,7 +34,7 @@ export default function SkillsPage() {
                                 backgroundColor: isOpen ? 'var(--color-accent)' : 'rgba(0,0,0,0)',
                             }}
                             transition={microTransition}
-                            className="-m-6 flex w-[calc(100%+3rem)] items-center justify-between gap-4 rounded-card p-6 text-left"
+                            className="-m-4 flex w-[calc(100%+2rem)] items-center justify-between gap-4 rounded-card p-4 text-left md:-m-6 md:w-[calc(100%+3rem] md:p-6"
                         >
                             <div className="flex flex-col gap-1">
                                 <h2 
@@ -75,13 +75,13 @@ export default function SkillsPage() {
                                     transition={microTransition}
                                     className="overflow-hidden"
                                 >
-                                    <div className="border-border mt-4 flex flex-wrap gap-3 border-t pt-4">
+                                    <div className="border-border mt-4 flex flex-wrap gap-2 border-t pt-4 md:gap-3">
                                         {category.skills.map((skill) => {
                                             const Icon = skillIconMap[skill.icon];
                                             return (
                                             <div 
                                                 key={skill.name} 
-                                                className="border-border bg-background flex items-center gap-2 rounded-card border px-4 py-2.5"
+                                                className="border-border bg-background flex items-center gap-2 rounded-card border px-3 py-2 md:px-4 md:py-2.5"
                                             >
                                                 {Icon && (
                                                     <Icon aria-hidden className="text-accent shrink-0 text-lg" />
