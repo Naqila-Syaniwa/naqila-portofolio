@@ -17,7 +17,7 @@ import type { SkillLevel } from "@/types/content";
 
 export const skillIconMap: Record<string, IconType> = {
     javascript: SiJavascript,
-    typeScript: SiTypescript,
+    typescript: SiTypescript,
     java: DiJava,
     react: SiReact,
     nextjs: SiNextdotjs,

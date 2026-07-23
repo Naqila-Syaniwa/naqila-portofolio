@@ -14,7 +14,7 @@ export default function SkillsPage() {
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
-            className="grid grid-cols-1 gap-6 sm:grid-cols-2"
+            className="grid grid-cols-1 items-start gap-6 sm:grid-cols-2"
         >
             {skillCategories.map((category) => {
                 const isOpen = openId === category.id;
@@ -53,14 +53,16 @@ export default function SkillsPage() {
                                 </p>
                             </div>
 
-                            <span 
-                                aria-hidden 
-                                className={`text-2xl shrink-0 transition-colors ${
+                            <motion.span 
+                                aria-hidden
+                                animate={{ rotate: isOpen ? 360 : 0 }}
+                                transition={{ duration: 0.6, ease: 'easeOut' }}
+                                className={`inline-block text-3xl shrink-0 transition-colors ${
                                     isOpen ? 'text-background' : 'text-accent'
                                 }`}
                             >
                                 ✦
-                            </span>
+                            </motion.span>
                         </motion.button>
 
                         <AnimatePresence initial={false}>
