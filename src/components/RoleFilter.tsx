@@ -1,7 +1,5 @@
 'use client';
 
-import { useState } from 'react';
-
 interface RoleFilterProps {
     roles: string[];
     active: string;

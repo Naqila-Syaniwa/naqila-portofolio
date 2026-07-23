@@ -34,7 +34,7 @@ export default function SkillsPage() {
                                 backgroundColor: isOpen ? 'var(--color-accent)' : 'rgba(0,0,0,0)',
                             }}
                             transition={microTransition}
-                            className="-m-4 flex w-[calc(100%+2rem)] items-center justify-between gap-4 rounded-card p-4 text-left md:-m-6 md:w-[calc(100%+3rem] md:p-6"
+                            className="-m-4 flex w-[calc(100%+2rem)] items-center justify-between gap-4 rounded-card p-4 text-left md:-m-6 md:w-[calc(100%+3rem]] md:p-6"
                         >
                             <div className="flex flex-col gap-1">
                                 <h2 
