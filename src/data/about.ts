@@ -22,5 +22,5 @@ export const aboutContent: AboutContent = {
             'Second paragraph is about my passion or interent like projects',
         ],
     },
-    cvUrl: '#',
+    cvUrl: '/documents/naqila-syaniwa-cv.pdf',
 };

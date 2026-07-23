@@ -46,7 +46,8 @@ export default function AboutPage() {
             <motion.a
                 variants={fadeUp}
                 href={aboutContent.cvUrl}
-                download
+                download="Naqila-Syaniwa-CV.pdf"
+                aria-label="Download CV Naqila Syaniwa (PDF)"
                 className="border-border rounded-pill text-text-primary hover:bg-surface inline-flex items-center gap-2 border px-8 py-3 text-sm font-medium transition-colors"
             >
                 Download CV
