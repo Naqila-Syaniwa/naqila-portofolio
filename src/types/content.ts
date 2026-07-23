@@ -1,3 +1,11 @@
+export interface AboutContent {
+    name: string;
+    initials: string;
+    roles: string[];
+    bioByRole: Record<string, string[]>;
+    cvUrl: string;
+}
+
 export type SkillLevel = 1 | 2 | 3 | 4 | 5;
 
 export interface Skill {

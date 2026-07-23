@@ -4,11 +4,11 @@ import { useState } from 'react';
 
 interface RoleFilterProps {
     roles: string[];
+    active: string;
+    onChange: (role: string) => void;
 }
 
-export function RoleFilter({ roles }: RoleFilterProps) {
-    const [active, setActive] = useState(roles[0]);
-
+export function RoleFilter({ roles, active, onChange }: RoleFilterProps) {
     return (
         <div className="flex flex-wrap justify-center gap-7">
             {roles.map((role) => {
@@ -18,7 +18,7 @@ export function RoleFilter({ roles }: RoleFilterProps) {
                     <button
                         key={role}
                         type="button"
-                        onClick={() => setActive(role)}
+                        onClick={() => onChange(role)}
                         aria-pressed={isActive}
                         className={`rounded-pill border px-4 py-2 text-sm font-medium transition-colors ${
                             isActive
