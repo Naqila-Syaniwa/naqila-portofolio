@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { skillCategories } from '@/lib/content';
 import { fadeUp, microTransition, staggerContainer } from '@/lib/motion';
+import { skillIconMap, skillLevelLabel } from '@/lib/skill-icons';
 
 export default function SkillsPage() {
     const [openId, setOpenId] = useState<string | null>(null);
@@ -67,18 +68,32 @@ export default function SkillsPage() {
                                 <motion.div
                                     key="content"
                                     initial={{ height: 0, opacity: 0 }}
-                                    animate={{ height: 0, opacity: 0 }}
+                                    animate={{ height: 'auto', opacity: 1 }}
                                     exit={{ height: 0, opacity: 0 }}
                                     transition={microTransition}
                                     className="overflow-hidden"
                                 >
-                                    <ul className="border-border mt-4 flex flex-col gap-2 border-t pt-4">
-                                        {category.skills.map((skill) => (
-                                            <li key={skill.name} className="text-text-primary text-sm">
-                                                {skill.name}
-                                            </li>
-                                        ))}
-                                    </ul>
+                                    <div className="border-border mt-4 flex flex-wrap gap-3 border-t pt-4">
+                                        {category.skills.map((skill) => {
+                                            const Icon = skillIconMap[skill.icon];
+                                            return (
+                                            <div 
+                                                key={skill.name} 
+                                                className="border-border bg-background flex items-center gap-2 rounded-card border px-4 py-2.5"
+                                            >
+                                                {Icon && (
+                                                    <Icon aria-hidden className="text-accent shrink-0 text-lg" />
+                                                )}
+                                                <span className="text-text-primary text-sm whitespace-nowrap">
+                                                    {skill.name}{' '}
+                                                    <span className="text-text-muted">
+                                                        ({skillLevelLabel[skill.level]})
+                                                    </span>
+                                                </span>
+                                            </div>
+                                            );
+                                        })}
+                                    </div>
                                 </motion.div>
                             )}
                         </AnimatePresence>
