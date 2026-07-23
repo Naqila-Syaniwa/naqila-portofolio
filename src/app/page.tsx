@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'motion/react';
+import { useRouter } from 'next/navigation';
 import { ThemeToggle } from '@/components/ui/ThemeToggle'
 import { fadeUp, microTransition, pillTap, staggerContainer } from '@/lib/motion';
 
@@ -12,6 +13,8 @@ const roles = [
 ];
 
 export default function Home() {
+  const router = useRouter();
+
   return (
     <div className="bg-background relative flex min-h-screen flex-1 flex-col items-center justify-center overflow-hidden px-6">
       {roles.map((role) => (
@@ -74,6 +77,7 @@ export default function Home() {
         </div>
         <motion.button
           type="button"
+          onClick={() => router.push('/about')}
           className="border-border rounded-pill text-text-primary flex items-center gap-2 border px-10 py-3.5 text-base font-medium transition-colors hover:bg-surface"
           {...pillTap}
         >

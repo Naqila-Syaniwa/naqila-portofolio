@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { DropCap } from '@/components/DropCap';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
 import { navItems } from '@/lib/nav-items';
+import { motion } from 'motion/react';
 
 export function Sidebar() {
     const pathname = usePathname();
@@ -26,9 +27,11 @@ export function Sidebar() {
                             }`}
                         >
                             {isActive && (
-                                <span 
+                                <motion.span 
+                                    layoutId="active-nav-indicator"
                                     aria-hidden="true"
                                     className="bg-accent/40 pointer-events-none absolute -inset-x-6 -inset-y-3 z-0 rounded-full blur-xl"
+                                    transition={{ type: 'spring', stiffness: 380, damping: 32 }}
                                 />
                             )}
                             <span className="relative z-10">
