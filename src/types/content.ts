@@ -25,6 +25,7 @@ export interface Experience {
     title: string;
     organization: string;
     year: string;
+    startYear: number;
     description: string;
     image?: string;
     skills: string[];
