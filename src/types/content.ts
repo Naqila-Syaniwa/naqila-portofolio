@@ -29,7 +29,6 @@ export interface Experience {
     image?: string;
     skills: string[];
     source?: string;
-    highlighted?: boolean;
 }
 
 export interface Project {

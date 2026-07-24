@@ -7,7 +7,6 @@
         "description": "Lead 2 Divisions with a total of 7 people.",
         "image": "/images/experiences/exp-1",
         "skills": ["Leadership", "Teamwork", "Communication"],
-        "source": "https://source.com",
-        "highlighted": true
+        "source": "https://source.com"
     }
 ]
