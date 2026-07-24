@@ -11,7 +11,7 @@ export function Sidebar() {
     const pathname = usePathname();
 
     return (
-        <aside className="border-border bg-surface hidden h-fit w-64 shrink-0 flex-col items-center gap-10 rounded-card border px-6 py-10 sm:flex">
+        <aside className="border-border bg-surface sticky top-10 hidden h-fit w-64 shrink-0 flex-col items-center gap-10 rounded-card border px-6 py-10 sm:flex">
             <nav className="flex flex-col items-center gap-8">
                 {navItems.map((item) => {
                     const isActive = pathname === item.href;
