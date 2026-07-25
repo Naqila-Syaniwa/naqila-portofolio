@@ -1,8 +1,9 @@
 'use client';
 
 import { useForm } from 'react-hook-form';
+import { useState } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { motion } from 'motion/react';
+import { AnimatePresence, motion } from 'motion/react';
 import { contactContent } from '@/data/contact';
 import { socialIconMap } from '@/lib/social-icons';
 import { fadeUp, staggerContainer } from '@/lib/motion';
@@ -13,12 +14,16 @@ export default function ContactPage() {
         register,
         handleSubmit,
         reset,
-        formState: { errors },
+        formState: { errors, isSubmitting },
     } = useForm<ContactFormValues>({
         resolver: zodResolver(contactFormSchema),
     });
+    
+    const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-    function onSubmit(values: ContactFormValues) {
+    async function onSubmit(values: ContactFormValues) {
+        setSubmitStatus('idle');
+        
         try {
             const response = await fetch('/api/contact', {
                 method: 'POST',
@@ -30,10 +35,11 @@ export default function ContactPage() {
                 throw new Error('Failed to send message');
             }
 
-            console.log('Message sent successfully');
             reset();
+            setSubmitStatus('success');
         } catch (error) {
             console.error(error);
+            setSubmitStatus('error');
         }
     }
 
@@ -124,12 +130,41 @@ export default function ContactPage() {
                         </div>
                     </div>
 
-                    <button
-                        type="submit"
-                        className="border-border bg-surface text-text-primary hover:border-accent self-end rounded-pill border px-6 py-2.5 text0sm font-medium transition-colors"
-                    >
-                        Send Message
-                    </button>
+                    <div className="flex flex-col items-end gap-3">
+                        <AnimatePresence mode="wait">
+                            {submitStatus === 'success' && (
+                                <motion.p
+                                    key="success"
+                                    initial={{ opacity: 0, y: -4 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0 }}
+                                    className="text-accent text-sm"
+                                >
+                                    Message sent! Thanks for reaching out - I&apos;ll get back to you soon.
+                                </motion.p>
+                            )}
+                            {submitStatus === 'error' && (
+                                <motion.p
+                                    key="error"
+                                    initial={{ opacity: 0, y: -4 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0 }}
+                                    className="text-danger text-sm"
+                                >
+                                    Something went wrong. Please try again in a moment.
+                                </motion.p>
+                            )}
+                        </AnimatePresence>
+                        
+                        <button
+                            type="submit"
+                            disabled={isSubmitting}
+                            aria-busy={isSubmitting}
+                            className="border-border bg-surface text-text-primary hover:border-accent self-end rounded-pill border px-6 py-2.5 text0sm font-medium transition-colors"
+                        >
+                            {isSubmitting ? 'sending...' : 'Send Message'}
+                        </button>
+                    </div>
                 </form>
             </motion.div>
         </motion.div>
