@@ -12,13 +12,29 @@ export default function ContactPage() {
     const {
         register,
         handleSubmit,
+        reset,
         formState: { errors },
     } = useForm<ContactFormValues>({
         resolver: zodResolver(contactFormSchema),
     });
 
     function onSubmit(values: ContactFormValues) {
-        console.log('Contact form submitted:', values);
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(values),
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to send message');
+            }
+
+            console.log('Message sent successfully');
+            reset();
+        } catch (error) {
+            console.error(error);
+        }
     }
 
     return (
