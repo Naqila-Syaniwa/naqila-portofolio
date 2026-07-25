@@ -37,41 +37,26 @@ export default function Home() {
       ))}
 
       <div className="-translate-y-6 sm:translate-y-12">
-        <motion.div 
-          className="relative z-10 flex flex-col items-center gap-2 text-center"
-          variants={staggerContainer}
-          initial="hidden"
-          animate="visible"
-        >
-          <motion.h1 
-            variants={fadeUp}
-            className="text-text-primary flex flex-wrap justify-center text-4xl font-medium tracking-normal sm:text-6xl"
-          >
+        <div className="hero-reveal relative z-10 flex flex-col items-center gap-2 text-center">
+          <h1 className="text-text-primary flex flex-wrap justify-center text-4xl font-medium tracking-normal sm:text-6xl">
             {'Naqila Syaniwa'.split(' ').map((word, wi) => (
               <span key={wi} className="flex">
                 {wi > 0 && <span className="w-[0.25em]" aria-hidden />}
                 {word.split('').map((letter, li) => (
-                  <motion.span
+                  <span
                     key={li}
-                    className={`hover:text-accent inline-block cursor-default transition-colors duration-150 ${li === 0 ? 'font-serif italic' : 'font-sans'}`}
-                    whileHover={{ scale: 1.3, y: -6 }}
-                    transition={microTransition}
+                    className={`hover:text-accent inline-block cursor-default transition-transform duration-150 hover:scale-125 hover:-translate-y-1.5 ${li === 0 ? 'font-serif italic' : 'font-sans'}`}
                   >
                     {letter}
-                  </motion.span>
+                  </span>
                 ))}
               </span>
             ))}
-          </motion.h1>
-          <motion.p
-            variants={fadeUp}
-            whileHover={{ scale: 1.03 }}
-            transition={microTransition}
-            className="hover:text-accent font-serif text-2xl italic text-text-primary transition-colors duration-150 sm:text-4xl cursor-default"
-          >
-              Portofolio
-          </motion.p>
-        </motion.div>
+          </h1>
+          <p className="hover:text-accent hover:scale-[1.03] font-serif text-2xl italic text-text-primary transition-transform duration-150 sm:text-4xl cursor-default">
+            Portofolio
+          </p>
+        </div>
       </div>
 
       <div className="absolute top-[max(1rem,env(safe-area-inset-top))] right-4 z-20 sm:right-8">
