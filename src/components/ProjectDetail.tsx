@@ -61,11 +61,14 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
             </motion.div>
 
 
-            <motion.div variants={fadeUp} className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+            <motion.div 
+                variants={fadeUp} 
+                className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-1 sm:grid sm:grid-cols-3 sm:overflow-visible sm:pb-0"
+            >
                 {gallery.map((src) => (
                     <div
                         key={src}
-                        className="border-border bg-surface relative aspect-video overflow-hidden rounded-card border"
+                        className="border-border bg-surface relative aspect-video w-[85%] shrink-0 snap-center overflow-hidden rounded-card border sm:w-auto sm:shrink sm:snap-none"
                     >
                         <div className="from-surface to-background absolute inset-0 bg-gradient-to-br" />
                     </div>
