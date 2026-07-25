@@ -44,3 +44,14 @@ export interface Project {
     githubUrl?: string;
     duration: string;
 }
+
+export interface SocialLink {
+    label: string;
+    url: string;
+    icon: string;
+}
+
+export interface ContactContent {
+    email: string;
+    socials: SocialLink[];
+}
