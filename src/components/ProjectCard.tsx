@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { motion } from 'motion/react';
 import type { Project } from '@/types/content';
 import { fadeUp } from '@/lib/motion';
+import { SmartImage } from './SmartImage';
 
 interface ProjectCardProps {
     project: Project;
@@ -19,7 +20,13 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 className="group border-border bg-surface rounded-card focus-visible:ring-accent focus-visible:ring-offset-background block overflow-hidden border transition-colors focus-visible:ring-2 focus-visible:outline-none"
             >
                 <div className="bg-background relative aspect-video overflow-hidden">
-                    <div className="from-surface to-background absolute inset-0 bg-gradient-to-br transition-transform duration-200 motion-safe:group-hover:scale-105 motion-safe:group-focus-visible:scale-105" />
+                    <SmartImage 
+                        src={project.thumbnail}
+                        alt={`Screenshot proyek ${title}`}
+                        fill
+                        sizes="(min-width: 640px) 50vw, 100vw"
+                        className="object-cover transition-transform duration-200 motion-safe:group-hover:scale-105 motion-safe:group-focus-visible:scale-105"
+                    />
 
                     <div className="absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 transition-all duration-200 group-hover:bg-black/20 group-hover:opacity-100 group-focus-visible:bg-black/20 group-focus-visible:opacity-100">
                         <span className="border-border bg-background text-text-primary rounded-pill border px-5 py-2 text-sm font-medium">

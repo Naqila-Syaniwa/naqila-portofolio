@@ -6,6 +6,7 @@ import { SiGithub } from 'react-icons/si';
 import type { Project } from '@/types/content';
 import { fadeUp, staggerContainer } from '@/lib/motion';
 import { getTechIcon } from '@/lib/tech-icons';
+import { SmartImage } from './SmartImage';
 
 interface ProjectDetailProps {
     project: Project;
@@ -64,12 +65,18 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
                 variants={fadeUp} 
                 className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-1 sm:grid sm:grid-cols-3 sm:overflow-visible sm:pb-0"
             >
-                {gallery.map((src) => (
+                {gallery.map((src, i) => (
                     <div
                         key={src}
                         className="border-border bg-surface relative aspect-video w-[85%] shrink-0 snap-center overflow-hidden rounded-card border sm:w-auto sm:shrink sm:snap-none"
                     >
-                        <div className="from-surface to-background absolute inset-0 bg-gradient-to-br" />
+                        <SmartImage 
+                            src={src}
+                            alt={`Galeri ${title} ${i + 1}`}
+                            fill
+                            sizes="(min-width: 640px) 33vw, 85vw"
+                            className="object-cover"
+                        />
                     </div>
                 ))}
             </motion.div>

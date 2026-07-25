@@ -3,6 +3,7 @@
 import { AnimatePresence, motion } from "motion/react";
 import type { Experience } from "@/types/content";
 import { fadeUp, microTransition } from "@/lib/motion";
+import { SmartImage } from "./SmartImage";
 
 interface ExperienceCardProps {
     experience: Experience;
@@ -11,7 +12,7 @@ interface ExperienceCardProps {
 }
 
 export function ExperienceCard({ experience, isOpen, onToggle }: ExperienceCardProps) {
-    const { title, organization, year, skills, source } = experience;
+    const { title, organization, year, skills, source, image } = experience;
 
     return (
         <motion.div
@@ -63,54 +64,62 @@ export function ExperienceCard({ experience, isOpen, onToggle }: ExperienceCardP
             </motion.button>
 
             <AnimatePresence initial={false}>
-                    {isOpen && (
-                        <motion.div
-                            key="content"
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: 'auto', opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            transition={microTransition}
-                            className="overflow-hidden"
-                        >
-                            <div className="border-border mt-4 flex flex-col gap-4 border-t pt-4 md:flex-row">
-                                <div className="bg-background border-border h-40 w-full shrink-0 rounded-card border md:w-56" />
-
-                                <div className="flex flex-col gap-3">
-                                    {skills.length > 0 && (
-                                        <div>
-                                            <p className="text-text-muted text-sm">Skills:</p>
-                                            <div className="mt-1 flex flex-wrap gap-2">
-                                                {skills.map((skill) => (
-                                                    <span
-                                                        key={skill}
-                                                        className="border-border bg-background text-text-primary rounded-pill border px-3 py-1 text-xs"
-                                                    >
-                                                        {skill}
-                                                    </span>
-                                                ))}
-                                            </div>
-                                        </div>
-                                    )}
-
-                                    <p className="text-text-primary text-sm">
-                                        <span className="text-text-muted">From: </span>
-                                        {source ? (
-                                            <a
-                                                href={source}
-                                                target="_blank"
-                                                rel="noreferrer"
-                                                className="text-accent underline underline-offset-2"
-                                            >
-                                                {organization}
-                                            </a>
-                                        ) : (
-                                            organization
-                                        )}
-                                    </p>
-                                </div>
+                {isOpen && (
+                    <motion.div
+                        key="content"
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={microTransition}
+                        className="overflow-hidden"
+                    >
+                        <div className="border-border mt-4 flex flex-col gap-4 border-t pt-4 md:flex-row">
+                            <div className="bg-background border-border relative h-40 w-full overflow-hidden rounded-card border md:w-56">
+                                <SmartImage 
+                                    src={experience.image}
+                                    alt={`Dokumentasi ${title}`}
+                                    fill
+                                    sizes="(min-width: 768px) 224px, 100vw"
+                                    className="object-cover"
+                                />
                             </div>
-                        </motion.div>
-                    )}
+
+                            <div className="flex flex-col gap-3">
+                                {skills.length > 0 && (
+                                    <div>
+                                        <p className="text-text-muted text-sm">Skills:</p>
+                                        <div className="mt-1 flex flex-wrap gap-2">
+                                            {skills.map((skill) => (
+                                                <span
+                                                    key={skill}
+                                                    className="border-border bg-background text-text-primary rounded-pill border px-3 py-1 text-xs"
+                                                >
+                                                    {skill}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
+
+                                <p className="text-text-primary text-sm">
+                                    <span className="text-text-muted">From: </span>
+                                    {source ? (
+                                        <a
+                                            href={source}
+                                            target="_blank"
+                                            rel="noreferrer"
+                                            className="text-accent underline underline-offset-2"
+                                        >
+                                            {organization}
+                                        </a>
+                                    ) : (
+                                        organization
+                                    )}
+                                </p>
+                            </div>
+                        </div>
+                    </motion.div>
+                )}
             </AnimatePresence>
         </motion.div>
     )
