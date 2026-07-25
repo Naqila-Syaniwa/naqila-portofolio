@@ -1,14 +1,24 @@
 'use client';
 
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { motion } from 'motion/react';
 import { contactContent } from '@/data/contact';
 import { socialIconMap } from '@/lib/social-icons';
 import { fadeUp, staggerContainer } from '@/lib/motion';
-import React from 'react';
+import { contactFormSchema, type ContactFormValues } from '@/lib/contact-schema';
 
 export default function ContactPage() {
-    function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-        event.preventDefault();
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<ContactFormValues>({
+        resolver: zodResolver(contactFormSchema),
+    });
+
+    function onSubmit(values: ContactFormValues) {
+        console.log('Contact form submitted:', values);
     }
 
     return (
@@ -49,36 +59,54 @@ export default function ContactPage() {
             <motion.div variants={fadeUp} className="flex flex-col gap-4">
                 <h2 className="text-text-primary text-lg font-semibold">Send Me a Message</h2>
                 
-                <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-                    <label className="flex flex-col gap-1.5 sm:flex-row sm:items-center sm:gap-4">
+                <form onSubmit={handleSubmit(onSubmit)} noValidate className="flex flex-col gap-4">
+                    <div className="flex flex-col gap-1.5 sm:flex-row sm:items-center sm:gap-4">
                         <span className="text-text-primary w-24 shrink-0 text-sm">Name :</span>
-                        <input 
-                            type="text"
-                            name="name"
-                            placeholder="Your name"
-                            className="border-border bg-surface text-text-primary placeholder:text-text-muted focus-visible:ring-accent focus-visible:ring-offset-background w-full rounded-card border px-4 py-2.5 text-sm focus-visible:ring-2 focus-visible:outline-none"
-                        />
-                    </label>
-
-                    <label className="flex flex-col gap-1.5 sm:flex-row sm:items-center sm:gap-4">
+                        <div className="flex w-full flex-col gap-1">
+                            <input 
+                                type="text"
+                                placeholder="Your name"
+                                {...register('name')}
+                                aria-invalid={!!errors.name}
+                                className="border-border bg-surface text-text-primary placeholder:text-text-muted focus-visible:ring-accent focus-visible:ring-offset-background w-full rounded-card border px-4 py-2.5 text-sm focus-visible:ring-2 focus-visible:outline-none aria-invalid:border-danger"
+                            />
+                            {errors.name && (
+                                <span className="text-danger text-xs">{errors.name.message}</span>
+                            )}
+                        </div>
+                    </div>
+                    
+                    <div className="flex flex-col gap-1.5 sm:flex-row sm:items-center sm:gap-4">
                         <span className="text-text-primary w-24 shrink-0 text-sm">Email :</span>
-                        <input 
-                            type="email"
-                            name="email"
-                            placeholder="your@email.com"
-                            className="border-border bg-surface text-text-primary placeholder:text-text-muted focus-visible:ring-accent focus-visible:ring-offset-background w-full rounded-card border px-4 py-2.5 text-sm focus-visible:ring-2 focus-visible:outline-none"
-                        />
-                    </label>
-
-                    <label className="flex flex-col gap-1.5 sm:flex-row sm:items-center sm:gap-4">
+                        <div className="flex w-full flex-col gap-1">
+                            <input 
+                                type="email"
+                                placeholder="your@email.com"
+                                {...register('email')}
+                                aria-invalid={!!errors.email}
+                                className="border-border bg-surface text-text-primary placeholder:text-text-muted focus-visible:ring-accent focus-visible:ring-offset-background w-full rounded-card border px-4 py-2.5 text-sm focus-visible:ring-2 focus-visible:outline-none aria-invalid:border-danger"
+                            />
+                            {errors.email && (
+                                <span className="text-danger text-xs">{errors.email.message}</span>
+                            )}
+                        </div>
+                    </div>
+                    
+                    <div className="flex flex-col gap-1.5 sm:flex-row sm:items-center sm:gap-4">
                         <span className="text-text-primary w-24 shrink-0 text-sm">Message :</span>
-                        <textarea 
-                            name="message"
-                            rows={5}
-                            placeholder="Hi, I'd like to discuss about a project, collaboration, or opportunity"
-                            className="border-border bg-surface text-text-primary placeholder:text-text-muted focus-visible:ring-accent focus-visible:ring-offset-background w-full rounded-card border px-4 py-2.5 text-sm focus-visible:ring-2 focus-visible:outline-none"
-                        />
-                    </label>
+                        <div className="flex w-full flex-col gap-1">
+                            <textarea 
+                                rows={5}
+                                placeholder="Hi, I'd like to discuss about a project, collaboration, or opportunity."
+                                {...register('message')}
+                                aria-invalid={!!errors.message}
+                                className="border-border bg-surface text-text-primary placeholder:text-text-muted focus-visible:ring-accent focus-visible:ring-offset-background w-full resize-none rounded-card border px-4 py-2.5 text-sm focus-visible:ring-2 focus-visible:outline-none aria-invalid:border-danger"
+                            />
+                            {errors.message && (
+                                <span className="text-danger text-xs">{errors.message.message}</span>
+                            )}
+                        </div>
+                    </div>
 
                     <button
                         type="submit"
