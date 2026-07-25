@@ -2,6 +2,10 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+html {
+  scrollbar-gutter: stable;
+}
+
 :root {
   --color-background: #ffffff;
   --color-surface: #f7f7f7;
@@ -101,5 +105,13 @@ textarea:-webkit-autofill:focus {
   }
   to {
     --vt-radius: 150%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none !important;
+    mix-blend-mode: normal;
   }
 }

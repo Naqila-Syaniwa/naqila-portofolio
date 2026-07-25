@@ -68,7 +68,7 @@ export default function ContactPage() {
                                 href={social.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="border-border bg-surface text-text-primary hover:border-accent flex items-center gap-2 rounded-pill border px-4 py-2.5 text-sm font-mdium transition-colors"
+                                className="border-border bg-surface text-text-primary hover:border-accent flex items-center gap-2 rounded-pill border px-4 py-2.5 text-sm font-medium transition-colors"
                             >
                                 {Icon && <Icon className="shrink-0 text-lg" aria-hidden />}
                                 {social.label}
@@ -160,7 +160,7 @@ export default function ContactPage() {
                             type="submit"
                             disabled={isSubmitting}
                             aria-busy={isSubmitting}
-                            className="border-border bg-surface text-text-primary hover:border-accent self-end rounded-pill border px-6 py-2.5 text0sm font-medium transition-colors"
+                            className="border-border bg-surface text-text-primary hover:border-accent self-end rounded-pill border px-6 py-2.5 text-sm font-medium transition-colors"
                         >
                             {isSubmitting ? 'sending...' : 'Send Message'}
                         </button>

@@ -6,7 +6,6 @@ import { SiGithub } from 'react-icons/si';
 import type { Project } from '@/types/content';
 import { fadeUp, staggerContainer } from '@/lib/motion';
 import { getTechIcon } from '@/lib/tech-icons';
-import { get } from 'http';
 
 interface ProjectDetailProps {
     project: Project;
@@ -39,7 +38,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
                                 href={websiteUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="border-border bg-surface text-text-primary hover:border-accent flex items-center gap-2 rounded-pil border px-4 py-2 text-sm font-medium transition-colors"
+                                className="border-border bg-surface text-text-primary hover:border-accent flex items-center gap-2 rounded-pill border px-4 py-2 text-sm font-medium transition-colors"
                             >
                                 <FiExternalLink aria-hidden />
                                 Website
@@ -50,7 +49,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
                                 href={githubUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="border-border bg-surface text-text-primary hover:border-accent flex items-center gap-2 rounded-pil border px-4 py-2 text-sm font-medium transition-colors"
+                                className="border-border bg-surface text-text-primary hover:border-accent flex items-center gap-2 rounded-pill border px-4 py-2 text-sm font-medium transition-colors"
                             >
                                 <SiGithub aria-hidden />
                                 Github
