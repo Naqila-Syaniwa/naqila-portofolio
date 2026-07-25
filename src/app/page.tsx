@@ -3,7 +3,7 @@
 import { motion } from 'motion/react';
 import { useRouter } from 'next/navigation';
 import { ThemeToggle } from '@/components/ui/ThemeToggle'
-import { fadeUp, microTransition, pillTap, staggerContainer } from '@/lib/motion';
+import { microTransition, pillTap } from '@/lib/motion';
 
 const roles = [
   { label: 'Software Engineer', position: 'top-[13%] sm:top-[19%] left-[6%] sm:left-[12%]' },
