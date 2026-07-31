@@ -1,18 +1,50 @@
 [
     {
+        "slug": "lunaria-ecommerce",
+        "title": "Lunaria E-Commerce",
+        "category": "E-Commerce Web App",
+        "thumbnail": "/images/projects/lunaria-thumb.png",
+        "gallery": [
+            "/images/projects/lunaria-1.png",
+            "/images/projects/lunaria-2.png",
+            "/images/projects/lunaria-3.png"
+        ],
+        "description": "A full-stack e-commerce web app built in a monorepo architecture, with a 33-item product catalog across 5 core pages and 13 RESTful API endpoints for auth, cart, and order management.",
+        "techStack": ["Next.js", "Express.js", "Tailwind CSS", "Vercel"],
+        "websiteUrl": "TODO_ISI_LINK",
+        "githubUrl": "TODO_ISI_LINK",
+        "duration": "1 month"
+    },
+    {
         "slug": "trashtrack",
         "title": "TrashTrack",
         "category": "IoT Platform",
-        "thumbnail": "/images/projects/trashtrack-thumb",
+        "thumbnail": "/images/projects/trashtrack-thumb.png",
         "gallery": [
-            "/images/projects/trashtrack-1",
-            "/images/projects/trashtrack-2",
-            "/images/projects/trashtrack-3"
+            "/images/projects/trashtrack-1.png",
+            "/images/projects/trashtrack-2.png",
+            "/images/projects/trashtrack-3.png"
         ],
         "description": "An indicator fill and gas level trashbin for smart city.",
         "techStack": ["Node.js", "MQTT", "Docker"],
         "websiteUrl": "",
         "githubUrl": "https://github.com/banu1312/smart-city-platform-kel6",
+        "duration": "1 month"
+    },
+    {
+        "slug": "merchio",
+        "title": "Merchio E-Commerce App",
+        "category": "Android E-Commerce App",
+        "thumbnail": "/images/projects/merchio-thumb.png",
+        "gallery": [
+            "/images/projects/merchio-1.png",
+            "/images/projects/merchio-2.png",
+            "/images/projects/merchio-3.png"
+        ],
+        "description": "An Android marketplace app featuring a Home page with an auto-slide banner and product grid, plus a multi-step checkout flow powered by REST APIs consumed via Retrofit.",
+        "techStack": ["Java", "Android Studio", "Retrofit"],
+        "websiteUrl": "",
+        "githubUrl": "TODO_ISI_LINK",
         "duration": "1 month"
     }
 ]
