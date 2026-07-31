@@ -1,13 +1,42 @@
 [
     {
         "id": "exp-1",
-        "title": "Vice Head of Media Communication and Information Departement",
+        "title": "Vice Head of Media Communication and Information",
         "organization": "Himpunan Mahasiswa Informatika UPNVJ",
-        "year": "2026 - Now",
+        "year": "January 2026 - Present",
         "startYear": 2026,
-        "description": "Lead 2 Divisions with a total of 7 people.",
+        "description": "Led a team of 7 staff across two divisions (Public Relations and Multimedia), initiating a transparent system to manage 400+ design and information requests within one semester. Also coordinated and designed the organization's Company Profile, showcasing 43 members.",
         "image": "/images/experiences/exp-1",
-        "skills": ["Leadership", "Teamwork", "Communication"],
-        "source": "https://source.com"
+        "skills": ["Leadership", "Teamwork", "Communication"]
+    },
+    {
+        "id": "exp-2",
+        "title": "Member",
+        "organization": "KSM Android",
+        "year": "November 2024 - December 2025",
+        "startYear": 2024,
+        "description": "Completed 3 structured study classes on UI/UX and Frontend, each held weekly over one semester, totaling 15 hours across 10 sessions, covering design methodology, Figma prototyping, and front-end fundamentals. Produced 2 individual projects and 1 team-based project, applying skills such as wireframing, prototyping, and responsive layouts.",
+        "image": "/images/experiences/exp-2",
+        "skills": ["UI/UX Design", "Figma", "Prototyping", "Frontend"]
+    },
+    {
+        "id": "exp-3",
+        "title": "Head of PDD Division",
+        "organization": "Learn with Android",
+        "year": "October 2025 - November 2025",
+        "startYear": 2025,
+        "description": "Led the Public Relations, Documentation, and Design (PDD) division to create engaging designs and content for events. Organized and guided a creative team to produce visual materials that attract audience attention, and coordinated with multiple divisions to align on a shared vision for the event.",
+        "image": "/images/experiences/exp-3",
+        "skills": ["Leadership", "Design", "Coordination"]
+    },
+    {
+        "id": "exp-4",
+        "title": "Head of HPD Division",
+        "organization": "Palang Merah Remaja",
+        "year": "August 2021 - August 2023",
+        "startYear": 2021,
+        "description": "Organized and facilitated design needs for other members and published monthly organizational activities. Managed communication with alumni and maintained good relations during special events, while strengthening teamwork and creativity within the division to support social and humanitarian activities.",
+        "image": "/images/experiences/exp-4",
+        "skills": ["Design", "Communication", "Teamwork"]
     }
 ]

@@ -12,7 +12,7 @@ interface ExperienceCardProps {
 }
 
 export function ExperienceCard({ experience, isOpen, onToggle }: ExperienceCardProps) {
-    const { title, organization, year, skills, source, image } = experience;
+    const { title, organization, year, description, skills, source, image } = experience;
 
     return (
         <motion.div
@@ -74,7 +74,7 @@ export function ExperienceCard({ experience, isOpen, onToggle }: ExperienceCardP
                         className="overflow-hidden"
                     >
                         <div className="border-border mt-4 flex flex-col gap-4 border-t pt-4 md:flex-row">
-                            <div className="bg-background border-border relative h-40 w-full overflow-hidden rounded-card border md:w-56">
+                            <div className="bg-background border-border relative h-40 w-full shrink-0 overflow-hidden rounded-card border md:w-56">
                                 <SmartImage 
                                     src={experience.image}
                                     alt={`Dokumentasi ${title}`}
@@ -85,6 +85,8 @@ export function ExperienceCard({ experience, isOpen, onToggle }: ExperienceCardP
                             </div>
 
                             <div className="flex flex-col gap-3">
+                                <p className="text-text-primary text-sm leading-relaxed">{description}</p>
+
                                 {skills.length > 0 && (
                                     <div>
                                         <p className="text-text-muted text-sm">Skills:</p>
