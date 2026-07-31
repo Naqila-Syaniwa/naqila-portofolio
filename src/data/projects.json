@@ -2,7 +2,7 @@
     {
         "slug": "lunaria-ecommerce",
         "title": "Lunaria E-Commerce",
-        "category": "E-Commerce Web App",
+        "category": "Flower E-Commerce Website",
         "thumbnail": "/images/lunaria-thumb.png",
         "gallery": [
             "/images/lunaria-1.png",
@@ -18,12 +18,10 @@
     {
         "slug": "trashtrack",
         "title": "TrashTrack",
-        "category": "IoT Platform",
+        "category": "IoT Backend Service Platform",
         "thumbnail": "/images/trashtrack-thumb.png",
         "gallery": [
-            "/images/trashtrack-1.png",
-            "/images/trashtrack-2.png",
-            "/images/trashtrack-3.png"
+            "/images/trashtrack-1.png"
         ],
         "description": "An indicator fill and gas level trashbin for smart city.",
         "techStack": ["Node.js", "MQTT", "Docker"],
@@ -34,7 +32,7 @@
     {
         "slug": "merchio",
         "title": "Merchio E-Commerce App",
-        "category": "Android E-Commerce App",
+        "category": "Anime Merch E-Commerce App",
         "thumbnail": "/images/merchio-thumb.png",
         "gallery": [
             "/images/merchio-1.png",
