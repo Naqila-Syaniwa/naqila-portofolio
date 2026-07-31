@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { aboutContent } from "@/data/about";
 import { RoleFilter } from "@/components/RoleFilter";
 import { fadeUp, microTransition, photoReveal, staggerContainer } from "@/lib/motion";
+import Image from 'next/image';
 
 export default function AboutPage() {
     const [activeRole, setActiveRole] = useState(aboutContent.roles[0]);
@@ -23,8 +24,17 @@ export default function AboutPage() {
 
             <motion.div 
                 variants={photoReveal}
-                className="border-border bg-surface h-48 w-48 rounded-card border md:h-64 md:w-64 xl:h-72 xl:w-72" 
-            />
+                className="border-border bg-surface relative h-48 w-48 overflow-hidden rounded-card border md:h-64 md:w-64 xl:h-72 xl:w-72" 
+            >
+                <Image
+                    src="/images/profile.png"
+                    alt={aboutContent.name}
+                    fill
+                    sizes="(min-width: 1280px) 288px, (min-width: 768px) 256px, 192px"
+                    className="object-cover"
+                    priority
+                />
+            </motion.div>
 
             <AnimatePresence mode="wait">
                 <motion.div
